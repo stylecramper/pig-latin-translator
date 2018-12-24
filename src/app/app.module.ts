@@ -4,13 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PigLatinTranslatorComponent } from './pig-latin-translator/pig-latin-translator.component';
-import { PiglatinPipePipe } from './piglatin-pipe.pipe';
+import { PiglatinPipe } from './pig-latin-translator/piglatin-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PigLatinTranslatorComponent,
-    PiglatinPipePipe
+    PiglatinPipe
   ],
   imports: [
     BrowserModule,
