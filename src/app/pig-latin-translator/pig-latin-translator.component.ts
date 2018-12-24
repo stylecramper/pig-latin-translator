@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-pig-latin-translator',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pig-latin-translator.component.css']
 })
 export class PigLatinTranslatorComponent implements OnInit {
+  pigLatinForm: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit() {
+  }
+
+  createForm() {
+    this.pigLatinForm = this.fb.group({
+      piglatin: ['']
+    });
   }
 
 }
