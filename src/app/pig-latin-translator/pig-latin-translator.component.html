@@ -1,3 +1,18 @@
-<p>
-  pig-latin-translator works!
-</p>
+  <h1 class="page-title">Pig Latin Translator</h1>
+  <h2>Translate Some Pig Latin!</h2>
+  <div class="container col-md-6 pig-latin-form">
+    <form [formGroup]="pigLatinForm">
+      <label class="control-label">Type something: <br />
+        <input
+          type="text"
+          class="form-control"
+          #usertext
+          autofocus
+          id="pig_latin"
+          autocomplete="off"
+          [formControl]="pigLatinForm.controls['piglatin']"
+        >
+      </label>
+    </form>
+    <p class="output">{{usertext.value | piglatin}}</p>
+  </div>
