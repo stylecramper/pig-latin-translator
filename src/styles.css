@@ -8,6 +8,22 @@ h1.page-title {
     height: 200px;
 }
 
+.pig-latin-form {
+    max-width: 330px;
+}
+
 .control-label input {
     width: 300px;
+}
+
+.copy-tools {
+    text-align: right;
+}
+
+.copy-button {
+    display: none;
+}
+
+.copy-button.shown {
+    display: inline-block;
 }

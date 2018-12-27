@@ -15,4 +15,12 @@
       </label>
     </form>
     <p class="output">{{usertext.value | piglatin}}</p>
+    <div class="copy-tools">
+      <button
+        type="button"
+        class="btn btn-info copy-button"
+        #copybutton
+        [ngClass]="{'shown': showCopyButton()}"
+        (click)="copyOutput();">Copy to clipboard</button>
+    </div>
   </div>

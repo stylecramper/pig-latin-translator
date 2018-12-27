@@ -22,4 +22,20 @@ export class PigLatinTranslatorComponent implements OnInit {
     });
   }
 
+  showCopyButton(): boolean {
+    return this.pigLatinForm.get('piglatin').value.length > 0;
+  }
+
+  copyOutput(): void {
+    const el = document.createElement('textarea');
+    el.value = document.querySelector('.output').innerText;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  };
+
 }
