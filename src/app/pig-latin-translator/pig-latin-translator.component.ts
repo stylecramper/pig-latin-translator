@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-pig-latin-translator',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class PigLatinTranslatorComponent implements OnInit {
   pigLatinForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public snackBar: MatSnackBar) {
     this.createForm();
   }
 
@@ -28,7 +29,8 @@ export class PigLatinTranslatorComponent implements OnInit {
 
   copyOutput(): void {
     const el = document.createElement('textarea');
-    el.value = document.querySelector('.output').innerText;
+    const p = <HTMLElement> document.querySelector('.output');
+    el.value = p.innerText;
     el.setAttribute('readonly', '');
     el.style.position = 'absolute';
     el.style.left = '-9999px';
@@ -36,6 +38,7 @@ export class PigLatinTranslatorComponent implements OnInit {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    this.snackBar.open(`Pig latin copied.`, '', { duration: 2000 });
   };
 
 }
