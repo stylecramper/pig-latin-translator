@@ -4,12 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'piglatin'
 })
 export class PiglatinPipe implements PipeTransform {
-  private vowels:Array<string> = [
+  private vowels: Array<string> = [
     'a',
     'e',
     'i',
     'o',
-    'u'
+    'u',
+    'y'
   ];
   private suffix = 'ay';
 
@@ -31,10 +32,13 @@ export class PiglatinPipe implements PipeTransform {
       .join(' ');
   }
 
-  findFirstVowel(word: string):number {
+  findFirstVowel(word: string): number {
     let firstVowelIndex = 0;
     for (let i = 0; i < word.length; i++) {
       firstVowelIndex = i;
+      if (i === 0 && word.charAt(i) === 'y') {
+        continue;
+      }
       if (this.vowels.includes(word.charAt(i))) {
         break;
       }
